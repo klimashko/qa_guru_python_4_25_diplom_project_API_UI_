@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "qa-guru-python-4-25-diplom-project-klimashko"
+version = "0.1.0"
+description = "My diplom project, the 4 course automation testing with python at QA GURU school"
+authors = ["evgenii klimashko <klimashko108@gmail.com>"]
+readme = "README.md"
+packages = [{include = "qa_guru_python_4_25_diplom_project_klimashko"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests="2.28.2"
+pytest="7.3.1"
+voluptuous="0.13.1"
+pytest-voluptuous="1.2"
+allure-pytest="2.13.2"
+curlify="2.2.1"
+selene="2.0.0rc2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."pytest"]
+log_cli = "1"
+log_level = "INFO"
+log_cli_format = "%(asctime)s %(message)s"  #Задаем формат логгирования - сначала время, затем мессидж
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"  #Задаем формат времени год-месяц-день часы:минуты:секунды
+addopts ="-s --alluredir=allure-results --allure-no-capture --clean-alluredir"
+
