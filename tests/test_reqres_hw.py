@@ -1,17 +1,19 @@
 from pytest_voluptuous import S
 from requests import Response
 
-from schemas.booker_schemas import
+from schemas.reqres import single_user_schema, login_schema, \
+    create_user_schema, register_unsuccessfull_schema, update_user_schema, \
+    register_user_schema, unsuccessfull_login_schema
 
 
-def ping_health_check_api(booker):
-    """A simple health check endpoint to confirm whether the API is up and running."""
-    response: Response = booker.get("/users/2")
+def test_get_users_users_quantity(reqres):
+    """Проверяем значение id пользователей и их количество."""
 
-    assert response.status_code == 200
-    assert S(single_user_schema) == response.json()
+    for number_user in range(1, 13):
+        response: Response = reqres.get(f"/users/{number_user}")
 
-
+        assert response.status_code == 200
+        assert number_user == response.json()['data']['id']
 
 
 def test_get_validate_schema_single_user(reqres):
