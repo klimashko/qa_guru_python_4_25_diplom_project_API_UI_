@@ -1,7 +1,4 @@
-from voluptuous import Schema, PREVENT_EXTRA, All, Length
-
-
-
+from voluptuous import Schema, PREVENT_EXTRA, All, Length, Datetime, Coerce
 
 auth_create_token = Schema(
     {
@@ -11,11 +8,20 @@ auth_create_token = Schema(
     required=True
 )
 
-
-
-login_schema = Schema(
+create_new_booking = Schema(
     {
-        'token': str
+        "bookingid": int,
+        "booking": {
+            "firstname": str,
+            "lastname": str,
+            "totalprice": int,
+            "depositpaid": bool,
+            "bookingdates": {
+                "checkin": str,
+                "checkout": str
+            },
+            "additionalneeds": str
+        }
     },
     extra=PREVENT_EXTRA,
     required=True

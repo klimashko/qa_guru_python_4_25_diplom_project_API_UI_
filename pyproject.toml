@@ -26,7 +26,7 @@ log_cli = 1
 log_level = "INFO"
 log_cli_format = "%(asctime)s %(message)s"  #Задаем формат логгирования - сначала время, затем мессидж
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"  #Задаем формат времени год-месяц-день часы:минуты:секунды
-addopts = " -s --clean-alluredir --alluredir=allure-results --allure-no-capture "
+addopts = " -s --alluredir=allure-results --clean-alluredir --allure-no-capture "
 
 
 

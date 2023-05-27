@@ -1,1 +1,0 @@
-Status code: 204 curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 0' -H 'User-Agent: python-requests/2.31.0' https://reqres.in/api/users/2
