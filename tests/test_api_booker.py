@@ -1,15 +1,29 @@
 from pytest_voluptuous import S
 from requests import Response
 
-from schemas.booker_schemas import
+from schemas.booker import auth_create_token
 
 
-def ping_health_check_api(booker):
+def test_ping_health_check_api(booker):
+
     """A simple health check endpoint to confirm whether the API is up and running."""
-    response: Response = booker.get("/users/2")
+    
+    response: Response = booker.get('/ping')
+
+    assert response.status_code == 201
+    assert response.text == 'Created'
+
+
+def test_auth_create_token(booker):
+
+    """Creates a new auth token to use for access to the PUT and DELETE /booking"""
+
+    payload = {"username": "admin", "password": "password123"}
+    response: Response = booker.post('/auth', data=payload)
 
     assert response.status_code == 200
-    assert S(single_user_schema) == response.json()
+    assert S(auth_create_token.schema) == response.json()
+
 
 
 
