@@ -1,0 +1,1 @@
+Status code: 201 curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM=' -H 'Connection: keep-alive' -H 'Content-Length: 0' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' https://restful-booker.herokuapp.com/booking/3857

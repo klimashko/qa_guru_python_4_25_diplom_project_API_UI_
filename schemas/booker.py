@@ -27,47 +27,28 @@ create_new_booking = Schema(
     required=True
 )
 
-create_user_schema = Schema(
-    {
-        "name": str,
-        "job": str,
-        "id": str,
-        "createdAt": str
-    },
-    extra=PREVENT_EXTRA,
-    required=True
+get_booking_ids = Schema(
+    All(
+        [
+            {"bookingid": All(int, Coerce(str))},
+        ],
+        Length(min=1),
+        extra=PREVENT_EXTRA,
+        required=True
+    )
 )
 
-register_unsuccessfull_schema = Schema(
+get_booking = Schema(
     {
-        "error": str
-    },
-    extra=PREVENT_EXTRA,
-    required=True
-)
-
-update_user_schema = Schema(
-    {
-        'name': str,
-        'job': str,
-        'updatedAt': str
-    },
-    extra=PREVENT_EXTRA,
-    required=True
-)
-
-register_user_schema = Schema(
-    {
-        "id": int,
-        "token": str
-    },
-    extra=PREVENT_EXTRA,
-    required=True
-)
-
-unsuccessfull_login_schema = Schema(
-    {
-        "error": str
+        "firstname": str,
+        "lastname": str,
+        "totalprice": int,
+        "depositpaid": bool,
+        "bookingdates": {
+            "checkin": str,
+            "checkout": str
+        },
+        "additionalneeds": str
     },
     extra=PREVENT_EXTRA,
     required=True
