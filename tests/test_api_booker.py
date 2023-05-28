@@ -1,20 +1,28 @@
 import json
-
 from pytest_voluptuous import S
 from requests import Response
-
+import allure
+from allure_commons.types import Severity
 from schemas.booker import auth_create_token, create_new_booking, get_booking_ids, get_booking
 
-
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('A simple health check endpoint to confirm whether the API is up and running')
+@allure.story('Booking')
+@allure.severity(Severity.BLOCKER)
 def test_ping_health_check_api(booker):
-    """A simple health check endpoint to confirm whether the API is up and running."""
+    """A simple health check endpoint to confirm whether the API is up and running"""
 
     response: Response = booker.get('/ping')
 
     assert response.status_code == 201
     assert response.text == 'Created'
 
-
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Creates a new auth token')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_auth_create_token(booker):
     """Creates a new auth token to use for access to the PUT and DELETE /booking"""
 
@@ -27,6 +35,12 @@ def test_auth_create_token(booker):
     print(token)
     return token
 
+
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Creates a new booking in the API')
+@allure.story('Booking')
+@allure.severity(Severity.BLOCKER)
 def test_create_new_booking(booker):
     """Creates a new booking in the API"""
 
@@ -52,8 +66,13 @@ def test_create_new_booking(booker):
     print(bookingid)
     return bookingid
 
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Returns the ids of all the bookings that exist within the API')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_get_booking_ids(booker):
-    """Returns the ids of all the bookings that exist within the API."""
+    """Returns the ids of all the bookings that exist within the API"""
 
     response: Response = booker.get('/booking')
 
@@ -61,6 +80,11 @@ def test_get_booking_ids(booker):
     assert S(get_booking_ids.schema) == response.json()
 
 
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Returns a specific booking based upon the booking id provided')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_get_booking(booker):
     """Returns a specific booking based upon the booking id provided"""
 
@@ -71,7 +95,11 @@ def test_get_booking(booker):
     assert response.status_code == 200
     assert S(get_booking.schema) == response.json()
 
-
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Updates a current booking')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_update_booking(booker):
     """Updates a current booking"""
 
@@ -100,6 +128,11 @@ def test_update_booking(booker):
     assert S(get_booking.schema) == response.json()
 
 
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Updates a current booking with a partial payload')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_partial_update_booking(booker):
     """Updates a current booking with a partial payload"""
 
@@ -121,6 +154,11 @@ def test_partial_update_booking(booker):
     assert S(get_booking.schema) == response.json()
 
 
+@allure.tag("api")
+@allure.label('owner', 'klimashko')
+@allure.feature('Deletes booking by the specified id')
+@allure.story('Booking')
+@allure.severity(Severity.NORMAL)
 def test_delete_booking(booker):
     """Deletes booking by the specified id"""
 
