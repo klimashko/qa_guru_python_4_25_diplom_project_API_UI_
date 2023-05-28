@@ -4,6 +4,8 @@ from requests import Response
 import allure
 from allure_commons.types import Severity
 from schemas.booker import auth_create_token, create_new_booking, get_booking_ids, get_booking
+from utils.functions_creates_api_data import create_new_bookingid
+
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
@@ -31,9 +33,6 @@ def test_auth_create_token(booker):
 
     assert response.status_code == 200
     assert S(auth_create_token.schema) == response.json()
-    token = response.json()['token']
-    print(token)
-    return token
 
 
 @allure.tag("api")
@@ -62,9 +61,7 @@ def test_create_new_booking(booker):
     assert response.status_code == 200
     assert S(create_new_booking.schema) == response.json()
 
-    bookingid = response.json()['bookingid']
-    print(bookingid)
-    return bookingid
+
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
@@ -88,7 +85,7 @@ def test_get_booking_ids(booker):
 def test_get_booking(booker):
     """Returns a specific booking based upon the booking id provided"""
 
-    id = test_create_new_booking(booker)
+    id = create_new_bookingid(booker)
 
     response: Response = booker.get(f'/booking/{id}')
 
@@ -103,7 +100,7 @@ def test_get_booking(booker):
 def test_update_booking(booker):
     """Updates a current booking"""
 
-    id = test_create_new_booking(booker)
+    id = create_new_bookingid(booker)
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -136,7 +133,7 @@ def test_update_booking(booker):
 def test_partial_update_booking(booker):
     """Updates a current booking with a partial payload"""
 
-    id = test_create_new_booking(booker)
+    id = create_new_bookingid(booker)
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -162,7 +159,7 @@ def test_partial_update_booking(booker):
 def test_delete_booking(booker):
     """Deletes booking by the specified id"""
 
-    id = test_create_new_booking(booker)
+    id = create_new_bookingid(booker)
     headers = {
         "Content-Type": "application/json",
         "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
