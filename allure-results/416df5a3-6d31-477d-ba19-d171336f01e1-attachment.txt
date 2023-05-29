@@ -1,1 +1,0 @@
-Status code: 200 curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 35' -H 'Content-Type: application/x-www-form-urlencoded' -H 'User-Agent: python-requests/2.31.0' -d 'username=admin&password=password123' https://restful-booker.herokuapp.com/auth
