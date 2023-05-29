@@ -18,6 +18,6 @@ def create_new_bookingid(booker):
         "additionalneeds": "Breakfast"
     }
     data = json.dumps(payload)
-    response: Response = booker.post('/booking', headers=headers, data=data)
+    response: Response = booker.post('/booking', headers=headers, data=data, allure_attachments_flag=None)
     bookingid = response.json()['bookingid']
     return bookingid

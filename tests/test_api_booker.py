@@ -86,7 +86,6 @@ def test_get_booking(booker):
     """Returns a specific booking based upon the booking id provided"""
 
     id = create_new_bookingid(booker)
-
     response: Response = booker.get(f'/booking/{id}')
 
     assert response.status_code == 200
