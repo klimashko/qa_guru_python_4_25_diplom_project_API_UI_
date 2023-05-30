@@ -24,7 +24,7 @@ def test_ping_health_check_api(booker):
 @allure.label('owner', 'klimashko')
 @allure.feature('Creates a new auth token')
 @allure.story('Booking')
-@allure.severity(Severity.NORMAL)
+@allure.severity(Severity.CRITICAL)
 def test_auth_create_token(booker):
     """Creates a new auth token to use for access to the PUT and DELETE /booking"""
 
@@ -95,7 +95,7 @@ def test_get_booking(booker):
 @allure.label('owner', 'klimashko')
 @allure.feature('Updates a current booking')
 @allure.story('Booking')
-@allure.severity(Severity.NORMAL)
+@allure.severity(Severity.CRITICAL)
 def test_update_booking(booker):
     """Updates a current booking"""
 
@@ -128,7 +128,7 @@ def test_update_booking(booker):
 @allure.label('owner', 'klimashko')
 @allure.feature('Updates a current booking with a partial payload')
 @allure.story('Booking')
-@allure.severity(Severity.NORMAL)
+@allure.severity(Severity.CRITICAL)
 def test_partial_update_booking(booker):
     """Updates a current booking with a partial payload"""
 
