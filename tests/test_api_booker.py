@@ -5,7 +5,10 @@ import allure
 from allure_commons.types import Severity
 from schemas.booker import auth_create_token, create_new_booking, get_booking_ids, get_booking
 from utils.functions_creates_api_data import create_new_bookingid
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
@@ -28,7 +31,10 @@ def test_ping_health_check_api(booker):
 def test_auth_create_token(booker):
     """Creates a new auth token to use for access to the PUT and DELETE /booking"""
 
-    payload = {"username": "admin", "password": "password123"}
+    USER = os.getenv('user')
+    PASSWORD = os.getenv('password')
+    payload = {"username": USER, "password": PASSWORD}
+
     response: Response = booker.post('/auth', data=payload)
 
     assert response.status_code == 200
