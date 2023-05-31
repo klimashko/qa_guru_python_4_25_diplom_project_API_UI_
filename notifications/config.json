@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "qa_guru_python_4_25_diplom_project_Klimashko",
+    "environment": "some env",
+    "comment": "Booking service API-tests",
+    "reportLink": "https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/allure/",
+    "language": "en",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6052379310:AAFMAuwUkABq9XUGgLNxzLIRTizxRE3Ph2g",
+    "chat": "-949991517",
+    "replyTo": ""
+  }
+}
