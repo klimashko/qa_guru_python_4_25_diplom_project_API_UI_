@@ -1,10 +1,10 @@
 {
   "base": {
     "logo": "",
-    "project": "qa_guru_python_4_25_diplom_project_Klimashko",
+    "project": "some project",
     "environment": "some env",
     "comment": "Booking service API-tests",
-    "reportLink": "https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/allure/",
+    "reportLink": "some link",
     "language": "en",
     "allureFolder": "allure-report/",
     "enableChart": true
