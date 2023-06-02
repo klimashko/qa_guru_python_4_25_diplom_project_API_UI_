@@ -1,5 +1,9 @@
-from faker import Faker
+import os
 
+from faker import Faker
+from dotenv import load_dotenv
+
+load_dotenv()
 fake_data = Faker()
 
 
@@ -15,16 +19,16 @@ class BookingData:
         additionalneeds = fake_data.bothify()
 
         return {
-        'firstname': firstname,
-        'lastname': lastname,
-        'totalprice': totalprice,
-        'depositpaid': depositpaid,
-               'bookingdates':
-                   {
-                       'checkin': checkin,
-                       'checkout': checkout
-                   },
-        'additionalneeds': additionalneeds
+            'firstname': firstname,
+            'lastname': lastname,
+            'totalprice': totalprice,
+            'depositpaid': depositpaid,
+            'bookingdates':
+                {
+                    'checkin': checkin,
+                    'checkout': checkout
+                },
+            'additionalneeds': additionalneeds
         }
 
     @staticmethod
@@ -33,17 +37,18 @@ class BookingData:
         lastname = fake_data.last_name()
 
         return {
-        'firstname': firstname,
-        'lastname': lastname,
+            'firstname': firstname,
+            'lastname': lastname,
         }
 
     @staticmethod
     def headers_data():
+        AUTHORIZATION = os.getenv('authorization')
         content_type = "application/json"
         accept = "application/json"
-        authorization = "Basic YWRtaW46cGFzc3dvcmQxMjM="
+
         return {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
-            }
+            "Content-Type": content_type,
+            "Accept": accept,
+            "Authorization": AUTHORIZATION
+        }
