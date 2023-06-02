@@ -1,0 +1,11 @@
+{
+    "firstname": "Kimberly",
+    "lastname": "Mcdaniel",
+    "totalprice": 582,
+    "depositpaid": false,
+    "bookingdates": {
+        "checkin": "2011-10-03",
+        "checkout": "1999-03-12"
+    },
+    "additionalneeds": "86 Sg"
+}
