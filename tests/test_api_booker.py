@@ -35,15 +35,13 @@ def test_ping_health_check_api(booker):
 def test_auth_create_token(booker):
     """Creates a new auth token to use for access to the PUT and DELETE /booking"""
 
-    USER = os.getenv('user')
-    PASSWORD = os.getenv('password')
-    payload = {"username": USER, "password": PASSWORD}
+    payload = BookingData.payload_data_create_token()
 
     response: Response = booker.post('/auth', data=payload)
 
     assert response.status_code == 200
     assert S(auth_create_token.schema) == response.json()
-
+    assert response.json()["token"].isalnum()
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')

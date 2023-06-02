@@ -32,6 +32,13 @@ class BookingData:
         }
 
     @staticmethod
+    def payload_data_create_token():
+        USER = os.getenv('user')
+        PASSWORD = os.getenv('password')
+
+        return {"username": USER, "password": PASSWORD}
+
+    @staticmethod
     def payload_data_short():
         firstname = fake_data.first_name()
         lastname = fake_data.last_name()
