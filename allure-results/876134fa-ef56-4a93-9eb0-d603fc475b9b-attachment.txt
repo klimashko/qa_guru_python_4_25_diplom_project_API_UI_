@@ -1,1 +1,0 @@
-Status code: 200 curl -X PATCH -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM=' -H 'Connection: keep-alive' -H 'Content-Length: 43' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' -d '{"firstname": "James", "lastname": "Brown"}' https://restful-booker.herokuapp.com/booking/4321
