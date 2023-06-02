@@ -14,6 +14,7 @@ fake_data = Faker()
 
 load_dotenv()
 
+
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
 @allure.feature('A simple health check endpoint to confirm whether the API is up and running')
@@ -27,6 +28,7 @@ def test_ping_health_check_api(booker):
     assert response.status_code == 201
     assert response.text == 'Created'
 
+
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
 @allure.feature('Creates a new auth token')
@@ -35,14 +37,13 @@ def test_ping_health_check_api(booker):
 def test_auth_create_token(booker):
     """Creates a new auth token to use for access to the PUT and DELETE /booking"""
 
-    USER = os.getenv('user')
-    PASSWORD = os.getenv('password')
-    payload = {"username": USER, "password": PASSWORD}
+    payload = BookingData.payload_data_create_token()
 
     response: Response = booker.post('/auth', data=payload)
 
     assert response.status_code == 200
     assert S(auth_create_token.schema) == response.json()
+    assert response.json()["token"].isalnum()
 
 
 @allure.tag("api")
@@ -93,6 +94,7 @@ def test_get_booking(booker):
 
     assert response.status_code == 200
     assert S(get_booking.schema) == response.json()
+
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')

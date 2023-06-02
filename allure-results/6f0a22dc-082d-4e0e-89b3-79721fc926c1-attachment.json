@@ -1,0 +1,11 @@
+{
+    "firstname": "Shannon",
+    "lastname": "Kennedy",
+    "totalprice": 231,
+    "depositpaid": false,
+    "bookingdates": {
+        "checkin": "1989-06-13",
+        "checkout": "1984-03-28"
+    },
+    "additionalneeds": "13 RI"
+}
