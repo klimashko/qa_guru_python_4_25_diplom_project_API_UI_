@@ -16,6 +16,7 @@ allure-pytest="^2.13.2"
 curlify="^2.2.1"
 selene="^2.0.0rc2"
 python-dotenv="^1.0.0"
+Faker="^18.10.0"
 
 
 [build-system]

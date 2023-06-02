@@ -3,10 +3,14 @@ from pytest_voluptuous import S
 from requests import Response
 import allure
 from allure_commons.types import Severity
+from models.api_model import BookingData
 from schemas.booker import auth_create_token, create_new_booking, get_booking_ids, get_booking
 from utils.functions_creates_api_data import create_new_bookingid
 import os
 from dotenv import load_dotenv
+from faker import Faker
+
+fake_data = Faker()
 
 load_dotenv()
 
@@ -49,24 +53,28 @@ def test_auth_create_token(booker):
 def test_create_new_booking(booker):
     """Creates a new booking in the API"""
 
-    headers = {"Content-Type": "application/json"}
-    payload = {
-    "firstname": "Jim",
-    "lastname": "Brown",
-    "totalprice": 111,
-    "depositpaid": True,
-    "bookingdates": {
-        "checkin": "2018-01-01",
-        "checkout": "2019-01-01"
-    },
-    "additionalneeds" : "Breakfast"
-    }
+    # headers = {"Content-Type": "application/json"}
+    headers = BookingData.headers_data()
+    payload = BookingData.payload_data()
+    # payload = {
+    # "firstname": "Jim",
+    # "lastname": "Brown",
+    # "totalprice": 111,
+    # "depositpaid": True,
+    # "bookingdates": {
+    #     "checkin": "2018-01-01",
+    #     "checkout": "2019-01-01"
+    # },
+    # "additionalneeds" : "Breakfast"
+    # }
     data = json.dumps(payload)
     response: Response = booker.post('/booking', headers=headers, data=data)
 
     assert response.status_code == 200
     assert S(create_new_booking.schema) == response.json()
-
+    assert payload.get("firstname") == response.json()["booking"]["firstname"]
+    assert payload.get("lastname") == response.json()["booking"]["lastname"]
+    assert payload.get("depositpaid") == response.json()["booking"]["depositpaid"]
 
 
 @allure.tag("api")
@@ -106,28 +114,33 @@ def test_update_booking(booker):
     """Updates a current booking"""
 
     id = create_new_bookingid(booker)
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
-        }
-    payload = {
-    "firstname": "James",
-    "lastname": "Brown",
-    "totalprice": 111,
-    "depositpaid": True,
-    "bookingdates": {
-        "checkin": "2018-01-01",
-        "checkout": "2019-01-01"
-    },
-    "additionalneeds": "Breakfast"
-    }
+    headers = BookingData.headers_data()
+    # headers = {
+    #     "Content-Type": "application/json",
+    #     "Accept": "application/json",
+    #     "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
+    #     }
+    payload = BookingData.payload_data()
+    # payload = {
+    # "firstname": "James",
+    # "lastname": "Brown",
+    # "totalprice": 111,
+    # "depositpaid": True,
+    # "bookingdates": {
+    #     "checkin": "2018-01-01",
+    #     "checkout": "2019-01-01"
+    # },
+    # "additionalneeds": "Breakfast"
+    # }
     data = json.dumps(payload)
 
     response: Response = booker.put(f'/booking/{id}', headers=headers, data=data)
 
     assert response.status_code == 200
     assert S(get_booking.schema) == response.json()
+    assert payload.get("firstname") == response.json()["firstname"]
+    assert payload.get("lastname") == response.json()["lastname"]
+    assert payload.get("depositpaid") == response.json()["depositpaid"]
 
 
 @allure.tag("api")
@@ -139,22 +152,25 @@ def test_partial_update_booking(booker):
     """Updates a current booking with a partial payload"""
 
     id = create_new_bookingid(booker)
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
-        }
-    payload = {
-    "firstname": "James",
-    "lastname": "Brown",
-    }
+    headers = BookingData.headers_data()
+    # headers = {
+    #     "Content-Type": "application/json",
+    #     "Accept": "application/json",
+    #     "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
+    #     }
+    payload = BookingData.payload_data_short()
+    # payload = {
+    # "firstname": "James",
+    # "lastname": "Brown",
+    # }
     data = json.dumps(payload)
 
     response: Response = booker.patch(f'/booking/{id}', headers=headers, data=data)
 
     assert response.status_code == 200
     assert S(get_booking.schema) == response.json()
-
+    assert payload.get("firstname") == response.json()["firstname"]
+    assert payload.get("lastname") == response.json()["lastname"]
 
 @allure.tag("api")
 @allure.label('owner', 'klimashko')
@@ -165,10 +181,11 @@ def test_delete_booking(booker):
     """Deletes booking by the specified id"""
 
     id = create_new_bookingid(booker)
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
-        }
+    headers = BookingData.headers_data()
+    # headers = {
+    #     # "Content-Type": "application/json",
+    #     "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
+    #     }
 
     response: Response = booker.delete(f'/booking/{id}', headers=headers)
 
