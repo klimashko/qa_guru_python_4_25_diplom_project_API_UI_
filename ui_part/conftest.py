@@ -1,13 +1,12 @@
 import os
 
-import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
 from dotenv import load_dotenv
 import pytest
 from selene import browser
-import os
+
 
 from utils import attach_ui
 
@@ -57,12 +56,16 @@ def setup_browser(request):
 
     login = os.getenv('LOGIN_SELENOID')
     password = os.getenv('PASSWORD_SELENOID')
+    print(login)
+    print(password)
 
     driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
         options=options
     )
-    browser = Browser(Config(driver))
+    browser.config.driver = driver
+    ui_base_url = os.getenv('UI_BASE_URL')
+    browser.config.base_url = (ui_base_url)
 
     yield browser
 
