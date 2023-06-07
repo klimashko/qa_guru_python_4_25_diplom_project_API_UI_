@@ -3,6 +3,9 @@ import pytest
 from selene import have
 from selene.core import command
 from selene.support.shared import browser
+import allure
+from allure_commons.types import Severity
+from allure import step
 
 from models.ui_model import FakeClient
 
@@ -31,31 +34,33 @@ from models.ui_model import FakeClient
 #         "Thanks for getting in touch Eddy Grant!\nWe'll get back to you about\nbooking\nas soon as possible."))
 
 def test_send_client_message(setup_browser):
+    with step("Preparing client data"):
+        client_data = FakeClient.message_data()
+        name = client_data.get("name")
+        email = client_data.get("email")
+        phone = client_data.get("phone")
+        subject = client_data.get("subject")
+        message = client_data.get("message")
 
-    client_data = FakeClient.message_data()
-    name = client_data.get("name")
-    email = client_data.get("email")
-    phone = client_data.get("phone")
-    subject = client_data.get("subject")
-    message = client_data.get("message")
+    with step("Open message form"):
+        browser = setup_browser
+        browser.open("/")
+        time.sleep(3)
 
+    with step("Fill form"):
+        browser.element(".btn.btn-primary").perform(command.js.click)
+        time.sleep(3)
 
-    browser = setup_browser
-    browser.open("/")
-    time.sleep(3)
-    browser.element(".btn.btn-primary").perform(command.js.click)
-    time.sleep(3)
+        browser.element('#name').perform(command.js.click).type(name)
+        browser.element('#email').perform(command.js.click).type(email)
+        time.sleep(3)
+        browser.element('#phone').perform(command.js.click).type(phone)
+        browser.element('#subject').perform(command.js.click).type(subject)
+        browser.element('#description').perform(command.js.click).type(message)
+        time.sleep(3)
+        browser.element('#submitContact').perform(command.js.click)
+        time.sleep(5)
 
-    browser.element('#name').perform(command.js.click).type(name)
-    browser.element('#email').perform(command.js.click).type(email)
-    time.sleep(3)
-    browser.element('#phone').perform(command.js.click).type(phone)
-    browser.element('#subject').perform(command.js.click).type(subject)
-    browser.element('#description').perform(command.js.click).type(message)
-    time.sleep(3)
-    browser.element('#submitContact').perform(command.js.click)
-    time.sleep(5)
-
-
-    browser.element('.col-sm-5').should(have.text(
-        f"Thanks for getting in touch {name}!\nWe'll get back to you about\n{subject}\nas soon as possible."))
+    with step("Check reply"):
+        browser.element('.col-sm-5').should(have.text(
+            f"Thanks for getting in touch {name}!\nWe'll get back to you about\n{subject}\nas soon as possible."))

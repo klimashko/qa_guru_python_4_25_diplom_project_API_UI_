@@ -2,11 +2,9 @@ import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
 from dotenv import load_dotenv
 import pytest
 from selene import browser
-
 
 from utils import attach_ui
 
@@ -20,7 +18,7 @@ def browser_management():
     )
     browser.config.browser_name = os.getenv('browser_name', 'chrome')
     browser.config.hold_browser_open = (
-        os.getenv('hold_browser_open', 'false').lower() == 'true'
+            os.getenv('hold_browser_open', 'false').lower() == 'true'
     )
     browser.config.window_width = os.getenv('window_width', '1920')
     browser.config.window_height = os.getenv('window_height', '1080')
@@ -56,8 +54,6 @@ def setup_browser(request):
 
     login = os.getenv('LOGIN_SELENOID')
     password = os.getenv('PASSWORD_SELENOID')
-    print(login)
-    print(password)
 
     driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",

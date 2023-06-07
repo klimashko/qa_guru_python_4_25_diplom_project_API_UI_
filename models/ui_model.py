@@ -11,7 +11,7 @@ class FakeClient:
     @staticmethod
     def message_data():
         name = fake_data.name()
-        phone = fake_data.phone_number()
+        phone = fake_data.msisdn()
         email = fake_data.email()
         subject = fake_data.word()
         message = fake_data.text()
