@@ -13,7 +13,8 @@ class FakeClient:
         name = fake_data.name()
         phone = fake_data.msisdn()
         email = fake_data.email()
-        subject = fake_data.word()
+        # subject = fake_data.word()
+        subject = fake_data.lexify('?' * 7)
         message = fake_data.text()
 
         return {
