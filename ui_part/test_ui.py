@@ -81,14 +81,19 @@ def test_admin_create_rooms(setup_browser):
         browser.element('#doLogin').click()
         time.sleep(5)
 
+    with step("Remove preset room"):
+        browser.element('.fa.fa-remove.roomDelete').click()
+
     with step("Create room"):
         browser.element('#roomName').should(be.visible).type(102)
         browser.element('#type').click()
-        browser.element('[value = "Twin"]').should(be.visible).click()  #Single, Twin, Double, Family, Suite
+        type = "Twin"
+        browser.element(f'[value = {type}]').should(
+            be.visible).click()  # Single, Twin, Double, Family, Suite
         browser.element('#accessible').click()
-        browser.element('[value = "true"]').should(be.visible).click()  #false
+        browser.element('[value = "true"]').should(be.visible).click()  # false
         browser.element('#roomPrice').type(200)
-        browser.element('#wifiCheckbox').click()  #refreshCheckbox, safeCheckbox, viewsCheckbox, radioCheckbox,
+        browser.element('#wifiCheckbox').click()
         browser.element('#refreshCheckbox').click()
         browser.element('#safeCheckbox').click()
         browser.element('#viewsCheckbox').click()
@@ -98,10 +103,21 @@ def test_admin_create_rooms(setup_browser):
     with step("Check created room"):
         browser.element('#frontPageLink').click()
         time.sleep(5)
-
-        browser.element('.col-sm-7').should(have.text('Twin'))
+        # browser.element(".btn.btn-primary").perform(command.js.click)
+        browser.element('.col-sm-7').perform(command.js.scroll_into_view)
+        browser.all('.col-sm-7').should(have.texts(
+            'Twin\nPlease enter a description for this room\nWiFi\nRefreshments\nSafe\nViews\nBook this room'))
         # 'WiFi', 'Refreshments', 'Safe', 'Views'
-        time.sleep(15)
+        time.sleep(5)
+
+    # browser.all('.col-sm-7').should(have.texts(
+    #     'Twin',
+    #     'Please enter a description for this room',
+    #     'WiFi'
+    #     'Refreshments'
+    #     'Safe'
+    #     'Views'
+    # ))
 
     #     browser.element('.container').should(have.text("Admin panel")).click()
     #     time.sleep(600)
