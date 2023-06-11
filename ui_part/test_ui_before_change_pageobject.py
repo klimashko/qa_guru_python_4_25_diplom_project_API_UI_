@@ -12,24 +12,39 @@ import requests
 
 from models.ui_model import UserMessage
 from ui_part.conftest import setup_browser
-from ui_part.pages.message_page import MessagePage
 
 
-def test_send_message(setup_browser):
-    message_page = MessagePage()
+def test_send_client_message(setup_browser):
+    with step("Preparing client data"):
+        client_data = UserMessage.message_data()
+        name = client_data.get("name")
+        email = client_data.get("email")
+        phone = client_data.get("phone")
+        subject = client_data.get("subject")
+        message = client_data.get("message")
 
-    user_data = UserMessage.message_data()
-    user = UserMessage(name=user_data.get("name"),
-                       email=user_data.get("email"),
-                       phone=user_data.get("phone"),
-                       subject=user_data.get("subject"),
-                       message=user_data.get("message"))
+    with step("Open message form"):
+        browser = setup_browser
+        browser.open("/")
+        time.sleep(3)
 
-    message_page.open(setup_browser)
+    with step("Fill form"):
+        browser.element(".btn.btn-primary").perform(command.js.click)
+        time.sleep(3)
 
-    message_page.fill_message_form(user=user)
+        browser.element('#name').perform(command.js.click).type(name)
+        browser.element('#email').perform(command.js.click).type(email)
+        time.sleep(3)
+        browser.element('#phone').perform(command.js.click).type(phone)
+        browser.element('#subject').perform(command.js.click).type(subject)
+        browser.element('#description').perform(command.js.click).type(message)
+        time.sleep(3)
+        browser.element('#submitContact').perform(command.js.click)
+        time.sleep(5)
 
-    message_page.assert_reply_with_data(name=user.name, subject=user.subject)
+    with step("Check reply"):
+        browser.element('.col-sm-5').should(have.text(
+            f"Thanks for getting in touch {name}!\nWe'll get back to you about\n{subject}\nas soon as possible."))
 
 
 def test_admin_create_rooms(setup_browser):
@@ -71,6 +86,15 @@ def test_admin_create_rooms(setup_browser):
             'Twin\nPlease enter a description for this room\nWiFi\nRefreshments\nSafe\nViews\nBook this room'))
         time.sleep(5)
 
+    # browser.all('.col-sm-7').should(have.texts(
+    #     'Twin',
+    #     'Please enter a description for this room',
+    #     'WiFi'
+    #     'Refreshments'
+    #     'Safe'
+    #     'Views'
+    # ))
+
 
 def test_open_browser_with_cookie(setup_browser):
     # Данные для HTTP-запроса
@@ -95,11 +119,11 @@ def test_open_browser_with_cookie(setup_browser):
     browser.open("/#/admin")
     browser.driver.add_cookie({"name": "token", "value": token})
     browser.open("/#/admin")
-    time.sleep(3)
+    time.sleep(30)
 
     # Открыть страницу в браузере Selene
     # browser.driver().get(url)
     browser.element('.col-sm-10').perform(command.js.scroll_into_view)
     browser.element('.col-sm-10').should(have.text(
         'Welcome to Shady Meadows, a delightful Bed & Breakfast nestled in the hills on Newingtonfordburyshire. A place so beautiful you will never want to leave. All our rooms have comfortable beds and we provide breakfast from the locally sourced supermarket. It is a delightful place.'))
-    time.sleep(3)
+    time.sleep(15)

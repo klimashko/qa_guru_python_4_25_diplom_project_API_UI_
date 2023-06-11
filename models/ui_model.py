@@ -4,33 +4,47 @@ from faker import Faker
 from dotenv import load_dotenv
 
 load_dotenv()
-fake_data = Faker()
+fake = Faker()
+
+import dataclasses
 
 
-class FakeClient:
+@dataclasses.dataclass
+class UserMessage:
+    name: str
+    phone: str
+    email: str
+    subject: str
+    message: str
+
     @staticmethod
     def message_data():
-        name = fake_data.name()
-        phone = fake_data.msisdn()
-        email = fake_data.email()
+        name = fake.name()
+        phone = fake.msisdn()
+        email = fake.email()
         # subject = fake_data.word()
-        subject = fake_data.lexify('?' * 7)
-        message = fake_data.text()
+        subject = fake.lexify('?' * 7)
+        message = fake.text()
 
         return {
-             "name": name,
-             "phone": phone,
-             "email": email,
-             "subject": subject,
-             "message": message
+            "name": name,
+            "phone": phone,
+            "email": email,
+            "subject": subject,
+            "message": message
         }
+
+'''Убрать вспомогательную ф-ию check()!!!!!!!!!!!!!!!!!'''
 def check():
-    client_data = FakeClient.message_data()
+    client_data = UserMessage.message_data()
     print(client_data)
     print(client_data.get('name'))
     print(client_data.get('subject'))
+    print(client_data.get("phone"))
 
 
 check()
 
-
+# class HotelRoom:
+#     @staticmethod
+#     def hotel_room_features():
