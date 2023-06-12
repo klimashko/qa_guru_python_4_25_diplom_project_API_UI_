@@ -1,5 +1,3 @@
-import os
-
 from faker import Faker
 from dotenv import load_dotenv
 
@@ -33,20 +31,6 @@ class UserMessage:
             "subject": subject,
             "message": message
         }
-
-
-'''Убрать вспомогательную ф-ию check()!!!!!!!!!!!!!!!!!'''
-
-
-def check():
-    client_data = UserMessage.message_data()
-    print(client_data)
-    print(client_data.get('name'))
-    print(client_data.get('subject'))
-    print(client_data.get("phone"))
-
-
-check()
 
 
 @dataclasses.dataclass
@@ -90,8 +74,3 @@ class Room:
             'safe': safe,
             'views': views
         }
-
-
-
-# totalprice = fake.random_int(min=100, max=900)
-#         depositpaid = fake.boolean()
