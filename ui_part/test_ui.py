@@ -32,44 +32,109 @@ def test_send_message(setup_browser):
     message_page.assert_reply_with_data(name=user.name, subject=user.subject)
 
 
-def test_admin_create_rooms(setup_browser):
-    with step("Open Admin panel"):
-        browser = setup_browser
+class CreateRoomPage:
+    @allure.step("Open Admin panel")
+    def open(self, browser):
+        # browser = setup_browser
         browser.open("/#/admin")
-        time.sleep(3)
+        return self
 
-    with step("Login to Admin panel"):
+    @allure.step("Login")
+    def login_admin_panel(self):  # Добавить аргументы логин ипароль, брать их из .env!!!!!!!!!!!!!!!!!!!!!!!!!!
         browser.element('#username').should(be.visible).type('admin')
         browser.element('#password').should(be.visible).type('password')
         browser.element('#doLogin').click()
-        time.sleep(5)
+        return self
 
-    with step("Remove preset room"):
+    @allure.step("Remove preset room")
+    def remove_preset_room(self):
         browser.element('.fa.fa-remove.roomDelete').click()
+        return self
 
-    with step("Create room"):
+    def fill_room_number(self):
         browser.element('#roomName').should(be.visible).type(102)
+        return self
+    def fill_room_type(self):
         browser.element('#type').click()
         type = "Twin"
         browser.element(f'[value = {type}]').should(
             be.visible).click()  # Single, Twin, Double, Family, Suite
+        return self
+    def fill_room_accessibility(self):
         browser.element('#accessible').click()
         browser.element('[value = "true"]').should(be.visible).click()  # false
+        return self
+    def fill_room_price(self):
         browser.element('#roomPrice').type(200)
+        return self
+    def choose_wifi(self):
         browser.element('#wifiCheckbox').click()
+        return self
+    def choose_refresh(self):
         browser.element('#refreshCheckbox').click()
+        return self
+    def choose_safe(self):
         browser.element('#safeCheckbox').click()
+        return self
+    def choose_views(self):
         browser.element('#viewsCheckbox').click()
+        return self
+    def create_room_button(self):
         browser.element('#createRoom').should(be.visible).click()
+        return self
+    @allure.step("Create room")
+    def create_room(self):
+        self.fill_room_number()
+        # browser.element('#roomName').should(be.visible).type(102)
+        self.fill_room_type()
+        # browser.element('#type').click()
+        # type = "Twin"
+        # browser.element(f'[value = {type}]').should(
+        #     be.visible).click()  # Single, Twin, Double, Family, Suite
+        self.fill_room_accessibility()
+        # browser.element('#accessible').click()
+        # browser.element('[value = "true"]').should(be.visible).click()  # false
+        self.fill_room_price()
+        # browser.element('#roomPrice').type(200)
+        self.choose_wifi()
+        # browser.element('#wifiCheckbox').click()
+        self.choose_refresh()
+        # browser.element('#refreshCheckbox').click()
+        self.choose_safe()
+        # browser.element('#safeCheckbox').click()
+        self.choose_views()
+        # browser.element('#viewsCheckbox').click()
+        self.create_room_button()
+        # browser.element('#createRoom').should(be.visible).click()
+        return self
 
-        time.sleep(5)
-    with step("Check created room"):
+    def go_to_frontpage(self):
         browser.element('#frontPageLink').click()
-        time.sleep(5)
+        return self
+
+    def assert_room_details_texts(self):
         browser.element('.col-sm-7').perform(command.js.scroll_into_view)
         browser.all('.col-sm-7').should(have.texts(
             'Twin\nPlease enter a description for this room\nWiFi\nRefreshments\nSafe\nViews\nBook this room'))
-        time.sleep(5)
+        return self
+
+    @allure.step("Assert created room")
+    def assert_created_room(self): #  добавить аргумкенты какой текст должен быть, в зависимости от типа комнаты
+        self.go_to_frontpage()
+        self.assert_room_details_texts()
+        return self
+
+
+def test_create_room(setup_browser):
+    create_room = CreateRoomPage()
+
+    create_room.open(setup_browser)
+    create_room.login_admin_panel()
+    create_room.remove_preset_room()
+    create_room.create_room()
+    time.sleep(5)
+    create_room.assert_created_room()
+    time.sleep(5)
 
 
 def test_open_browser_with_cookie(setup_browser):
