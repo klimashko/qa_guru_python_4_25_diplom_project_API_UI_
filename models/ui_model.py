@@ -34,7 +34,10 @@ class UserMessage:
             "message": message
         }
 
+
 '''Убрать вспомогательную ф-ию check()!!!!!!!!!!!!!!!!!'''
+
+
 def check():
     client_data = UserMessage.message_data()
     print(client_data)
@@ -45,6 +48,50 @@ def check():
 
 check()
 
-# class HotelRoom:
-#     @staticmethod
-#     def hotel_room_features():
+
+@dataclasses.dataclass
+class Room:
+    type: str
+    number: int
+    accessible: bool
+    price: int
+    wifi: bool
+    refresh: bool
+    safe: bool
+    views: bool
+
+    @staticmethod
+    def room_features(type):  # Choose room type: 'Single', 'Twin', 'Double', 'Family', 'Suite'
+
+        numbers = {'Single': fake.random_int(min=101, max=199), 'Twin': fake.random_int(min=201, max=299),
+                   'Double': fake.random_int(min=301, max=399), 'Family': fake.random_int(min=401, max=499),
+                   'Suite': fake.random_int(min=501, max=599)}
+
+        prices = {'Single': 100, 'Twin': 250,
+                  'Double': 250, 'Family': 300,
+                  'Suite': 990}
+
+        type = type
+        number = numbers[type]
+        accessible = True
+        price = prices[type]
+        wifi = True
+        refresh = True
+        safe = True
+        views = True
+
+        return {
+            'type': type,
+            'number': number,
+            'accessible': accessible,
+            'price': price,
+            'wifi': wifi,
+            'refresh': refresh,
+            'safe': safe,
+            'views': views
+        }
+
+
+
+# totalprice = fake.random_int(min=100, max=900)
+#         depositpaid = fake.boolean()
