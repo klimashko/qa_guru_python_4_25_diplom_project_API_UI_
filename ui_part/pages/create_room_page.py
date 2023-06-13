@@ -1,9 +1,15 @@
+import os
+
+from dotenv import load_dotenv
 from selene import have, be
 from selene.core import command
 from selene.support.shared import browser
 import allure
 
 from models.ui_model import Room
+
+
+load_dotenv()
 
 
 class CreateRoomPage:
@@ -14,10 +20,11 @@ class CreateRoomPage:
         return self
 
     @allure.step("Login")
-    def login_admin_panel(
-            self):  # Добавить аргументы логин ипароль, брать их из .env!!!!!!!!!!!!!!!!!!!!!!!!!!
-        browser.element('#username').should(be.visible).type('admin')
-        browser.element('#password').should(be.visible).type('password')
+    def login_admin_panel(self):
+        login = os.getenv('LOGIN_ADMIN')
+        password = os.getenv('PASSWORD_ADMIN')
+        browser.element('#username').should(be.visible).type(login)
+        browser.element('#password').should(be.visible).type(password)
         browser.element('#doLogin').click()
         return self
 
