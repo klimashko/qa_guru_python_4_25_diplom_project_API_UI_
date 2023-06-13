@@ -8,7 +8,6 @@ import allure
 
 from models.ui_model import Room
 
-
 load_dotenv()
 
 
