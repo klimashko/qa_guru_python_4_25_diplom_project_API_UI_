@@ -27,9 +27,11 @@ class CreateRoomPage:
         browser.element('#doLogin').click()
         return self
 
-    @allure.step("Remove preset room")
-    def remove_preset_room(self):
-        browser.element('.fa.fa-remove.roomDelete').click()
+    @allure.step("Remove preset rooms")
+    def remove_preset_rooms(self):
+        if browser.all('.fa.fa-remove.roomDelete'):
+            for element in browser.all('.fa.fa-remove.roomDelete'):
+                element.click()
         return self
 
     def fill_room_number(self, value):
