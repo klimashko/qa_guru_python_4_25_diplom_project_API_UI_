@@ -34,5 +34,7 @@ def test_all_rooms_on_frontpage(setup_browser):
         create_room.create_new_room(room=room)
         time.sleep(3)
     time.sleep(5)
+    # if browser.element('#typesingle'):
+    #     browser.element('.fa.fa-remove.roomDelete').click()
     create_room.go_to_frontpage()
     create_room.assert_all_rooms_on_frontpage(*types)
