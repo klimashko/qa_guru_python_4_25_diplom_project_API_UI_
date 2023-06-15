@@ -118,3 +118,9 @@ class CreateRoomPage:
         self.go_to_frontpage()
         self.assert_room_details_texts(type)
         return self
+
+    @allure.step("Assert created room")
+    def assert_all_rooms_on_frontpage(self, *args):
+        browser.element('.col-sm-7').perform(command.js.scroll_into_view)
+        browser.all('.col-sm-7').should(have.texts(*args))
+        return self
