@@ -9,11 +9,11 @@ from ui_part.pages.create_room_page import CreateRoomPage
 from ui_part.pages.message_page import MessagePage
 
 
-def test_all_rooms_on_frontpage(setup_browser):
+def test_all_rooms_on_frontpage(browser_management):
     types = ["Single", "Double", "Twin", "Family", "Suite"]
 
     create_room = CreateRoomPage()
-    create_room.open(setup_browser)
+    create_room.open(browser_management)
     create_room.login_admin_panel()
     if browser.element('.fa.fa-remove.roomDelete'):
         print("Есть предустановленная комната")

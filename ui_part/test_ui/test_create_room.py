@@ -10,7 +10,7 @@ from ui_part.pages.message_page import MessagePage
 
 
 @pytest.mark.parametrize("type", ["Single", "Double", "Twin", "Family", "Suite"])
-def test_create_room(setup_browser, type):
+def test_create_room(browser_management, type):
     type = type
     create_room = CreateRoomPage()
     room_features = Room.room_features(type)
@@ -23,13 +23,14 @@ def test_create_room(setup_browser, type):
                 safe=room_features.get('safe'),
                 views=room_features.get('views'))
 
-    create_room.open(setup_browser)
+    create_room.open(browser_management)
 
     create_room.login_admin_panel()
-    time.sleep(1)
+    time.sleep(2)
     create_room.remove_preset_rooms()
     time.sleep(5)
     create_room.create_new_room(room=room)
     time.sleep(3)
     create_room.assert_created_room(type=room.type)
     time.sleep(3)
+
