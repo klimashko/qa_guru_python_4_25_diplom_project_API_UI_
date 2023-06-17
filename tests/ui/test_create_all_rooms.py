@@ -11,7 +11,6 @@ def test_all_rooms_on_frontpage(setup_browser):
 
     create_room.open(setup_browser)
     create_room.login_admin_panel()
-    # time.sleep(2)
 
     create_room.remove_preset_rooms()
     for type_room in types_room:
@@ -25,7 +24,6 @@ def test_all_rooms_on_frontpage(setup_browser):
                     safe=room_features.get('safe'),
                     views=room_features.get('views'))
         create_room.create_new_room(room=room)
-    # time.sleep(3)
 
     create_room.go_to_frontpage()
     create_room.assert_all_rooms_on_frontpage(*types_room)
