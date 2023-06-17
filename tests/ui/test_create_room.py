@@ -22,7 +22,6 @@ def test_create_room(setup_browser, type_room):
     create_room.open(setup_browser)
 
     create_room.login_admin_panel()
-    # time.sleep(2)
 
     create_room.remove_preset_rooms()
 

@@ -6,6 +6,7 @@ from selene.core import command
 from selene.support.shared import browser
 import allure
 
+
 from models.ui_model import Room
 
 load_dotenv()
@@ -28,11 +29,14 @@ class CreateRoomPage:
         return self
 
     @allure.step("Remove preset rooms")
+
     def remove_preset_rooms(self):
-        if browser.all('.fa.fa-remove.roomDelete'):
-            for element in browser.all('.fa.fa-remove.roomDelete'):
-                if element:
-                    element.click()
+        browser.element('#createRoom').should(be.clickable)
+        if browser.element('.fa.fa-remove.roomDelete'):
+            elements = browser.all('.fa.fa-remove.roomDelete')
+            for element in elements:
+                if element.should(be.visible):
+                    element.perform(command.js.click)
             # browser.all('.fa.fa-remove.roomDelete').perform(command.js.click)
         return self
 
