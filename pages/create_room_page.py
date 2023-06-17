@@ -37,7 +37,6 @@ class CreateRoomPage:
             for element in elements:
                 if element.should(be.visible):
                     element.perform(command.js.click)
-            # browser.all('.fa.fa-remove.roomDelete').perform(command.js.click)
         return self
 
     def fill_room_number(self, value):
