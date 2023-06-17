@@ -1,17 +1,13 @@
 import json
 import time
-import pytest
 from requests import Response
 from selene import have, be
 from selene.core import command
 from selene.support.shared import browser
-import allure
-from allure_commons.types import Severity
 from allure import step
 import requests
 
 from models.ui_model import UserMessage
-from ui_part.conftest import setup_browser
 
 
 def test_send_client_message(setup_browser):

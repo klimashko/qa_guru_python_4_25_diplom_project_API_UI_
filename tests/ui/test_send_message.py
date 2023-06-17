@@ -1,13 +1,5 @@
-import time
-import pytest
-from selene import have
-from selene.core import command
-from selene.support.shared import browser
-
-
-from models.ui_model import UserMessage, Room
-from ui_part.pages.create_room_page import CreateRoomPage
-from ui_part.pages.message_page import MessagePage
+from models.ui_model import UserMessage
+from pages.message_page import MessagePage
 
 
 def test_send_message(setup_browser):

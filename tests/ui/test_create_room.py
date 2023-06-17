@@ -1,20 +1,16 @@
 import time
 import pytest
-from selene import have
-from selene.core import command
-from selene.support.shared import browser
 
-from models.ui_model import UserMessage, Room
-from ui_part.pages.create_room_page import CreateRoomPage
-from ui_part.pages.message_page import MessagePage
+from models.ui_model import Room
+from pages.create_room_page import CreateRoomPage
 
 
-@pytest.mark.parametrize("type", ["Single", "Double", "Twin", "Family", "Suite"])
-def test_create_room(setup_browser, type):
-    type = type
+@pytest.mark.parametrize("type_room", ["Single", "Double", "Twin", "Family", "Suite"])
+def test_create_room(setup_browser, type_room):
+    type_room = type_room
     create_room = CreateRoomPage()
-    room_features = Room.room_features(type)
-    room = Room(type=room_features.get('type'),
+    room_features = Room.room_features(type_room)
+    room = Room(type_room=room_features.get('type_room'),
                 number=room_features.get('number'),
                 accessible=room_features.get('accessible'),
                 price=room_features.get('price'),
@@ -31,6 +27,6 @@ def test_create_room(setup_browser, type):
     time.sleep(5)
     create_room.create_new_room(room=room)
     time.sleep(3)
-    create_room.assert_created_room(type=room.type)
+    create_room.assert_created_room(type_room=room.type_room)
     time.sleep(3)
 
