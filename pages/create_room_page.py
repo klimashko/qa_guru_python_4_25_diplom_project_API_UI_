@@ -33,7 +33,7 @@ class CreateRoomPage:
     def remove_preset_rooms(self):
         browser.element('#createRoom').should(be.clickable)
         if browser.element('.fa.fa-remove.roomDelete'):
-            elements = browser.all('.fa.fa-remove.roomDelete::before')
+            elements = browser.all('.fa.fa-remove.roomDelete')
             for element in elements:
                 if element.should(be.clickable):
                     element.perform(command.js.click)
