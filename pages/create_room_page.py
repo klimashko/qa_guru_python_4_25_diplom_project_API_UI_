@@ -39,6 +39,21 @@ class CreateRoomPage:
                     element.perform(command.js.click)
         return self
 
+    def second_remove_preset_rooms(self, type_room):
+        for element in browser.all('.row.detail'):
+            if not element.element('.col-sm-2').should(have.text(type_room)):
+                element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(command.js.click)
+        return self
+
+    def clean_panel_before_making_allrooms(self):
+        browser.element('#createRoom').should(be.clickable)
+        if browser.element('.row.detail'):
+            elements = browser.all('.row.detail')
+            for element in elements:
+                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete'):
+                    element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(command.js.click)
+        return self
+
     def fill_room_number(self, value):
         browser.element('#roomName').should(be.visible).type(value)
         return self

@@ -27,5 +27,7 @@ def test_create_room(setup_browser, type_room):
 
     create_room.create_new_room(room=room)
 
+    create_room.second_remove_preset_rooms(type_room=room.type_room)
+
     create_room.assert_created_room(type_room=room.type_room)
 

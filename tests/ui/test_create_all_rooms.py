@@ -12,7 +12,8 @@ def test_all_rooms_on_frontpage(setup_browser):
     create_room.open(setup_browser)
     create_room.login_admin_panel()
 
-    create_room.remove_preset_rooms()
+    # create_room.remove_preset_rooms()
+    create_room.clean_panel_before_making_allrooms()
     for type_room in types_room:
         room_features = Room.room_features(type_room)
         room = Room(type_room=room_features.get('type_room'),
@@ -23,6 +24,7 @@ def test_all_rooms_on_frontpage(setup_browser):
                     refresh=room_features.get('refresh'),
                     safe=room_features.get('safe'),
                     views=room_features.get('views'))
+
         create_room.create_new_room(room=room)
 
     create_room.go_to_frontpage()
