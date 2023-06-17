@@ -18,7 +18,6 @@ class BookingData:
         checkout = fake_data.date()
         additionalneeds = fake_data.bothify()
 
-
         return {
             'firstname': firstname,
             'lastname': lastname,

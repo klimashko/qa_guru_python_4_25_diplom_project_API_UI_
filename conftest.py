@@ -4,11 +4,10 @@ from dotenv import load_dotenv
 from utils.helper import BaseSession
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import browser
 from selene import Browser, Config
+from selene import browser
 
 from utils import attach_ui
-
 
 load_dotenv()
 
@@ -76,7 +75,7 @@ def setup_browser(request):
         options=options
     )
 
-    # browser.config.hold_driver_at_exit = True  # Строкка добавлена чтобы избавиться от warning - не помогло
+    # browser = Browser(Config(driver))
     browser.config.driver = driver
     ui_base_url = os.getenv('UI_BASE_URL')
     browser.config.base_url = (ui_base_url)

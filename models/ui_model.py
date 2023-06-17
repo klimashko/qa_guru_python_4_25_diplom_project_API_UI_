@@ -1,10 +1,9 @@
 from faker import Faker
 from dotenv import load_dotenv
+import dataclasses
 
 load_dotenv()
 fake = Faker()
-
-import dataclasses
 
 
 @dataclasses.dataclass
@@ -20,7 +19,6 @@ class UserMessage:
         name = fake.name()
         phone = fake.msisdn()
         email = fake.email()
-        # subject = fake_data.word()
         subject = fake.lexify('?' * 7)
         message = fake.text()
 

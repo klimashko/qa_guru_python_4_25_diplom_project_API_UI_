@@ -24,9 +24,8 @@ def test_create_room(setup_browser, type_room):
     create_room.login_admin_panel()
     time.sleep(2)
     create_room.remove_preset_rooms()
-    time.sleep(5)
+    # time.sleep(5)
     create_room.create_new_room(room=room)
-    time.sleep(3)
+    # time.sleep(3)
     create_room.assert_created_room(type_room=room.type_room)
-    time.sleep(3)
-
+    # time.sleep(3)

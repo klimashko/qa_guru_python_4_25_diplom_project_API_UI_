@@ -13,9 +13,9 @@ def test_all_rooms_on_frontpage(setup_browser):
     create_room.login_admin_panel()
     if browser.element('.fa.fa-remove.roomDelete'):
         print("Есть предустановленная комната")
-    time.sleep(5)
+    time.sleep(2)
     create_room.remove_preset_rooms()
-    time.sleep(5)
+    # time.sleep(5)
     for type_room in types_room:
         room_features = Room.room_features(type_room)
         room = Room(type_room=room_features.get('type_room'),
@@ -28,9 +28,7 @@ def test_all_rooms_on_frontpage(setup_browser):
                     views=room_features.get('views'))
 
         create_room.create_new_room(room=room)
-        time.sleep(3)
-    time.sleep(5)
-    # if browser.element('#typesingle'):
-    #     browser.element('.fa.fa-remove.roomDelete').click()
+        # time.sleep(3)
+    time.sleep(2)
     create_room.go_to_frontpage()
     create_room.assert_all_rooms_on_frontpage(*types_room)
