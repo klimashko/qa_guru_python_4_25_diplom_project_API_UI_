@@ -6,7 +6,7 @@ from allure_commons.types import Severity
 from allure import step
 from models.api_model import BookingData
 from schemas.booker import auth_create_token, create_new_booking, get_booking_ids, get_booking
-from utils.functions_creates_api_data import create_new_bookingid
+from utils.function_create_api_data import create_new_bookingid
 from dotenv import load_dotenv
 from faker import Faker
 

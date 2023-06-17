@@ -1,16 +1,12 @@
 import time
-import pytest
-from selene import have
-from selene.core import command
 from selene.support.shared import browser
 
-from models.ui_model import UserMessage, Room
-from ui_part.pages.create_room_page import CreateRoomPage
-from ui_part.pages.message_page import MessagePage
+from models.ui_model import Room
+from pages.create_room_page import CreateRoomPage
 
 
 def test_all_rooms_on_frontpage(setup_browser):
-    types = ["Single", "Double", "Twin", "Family", "Suite"]
+    types_room = ["Single", "Double", "Twin", "Family", "Suite"]
 
     create_room = CreateRoomPage()
     create_room.open(setup_browser)
@@ -20,9 +16,9 @@ def test_all_rooms_on_frontpage(setup_browser):
     time.sleep(5)
     create_room.remove_preset_rooms()
     time.sleep(5)
-    for type in types:
-        room_features = Room.room_features(type)
-        room = Room(type=room_features.get('type'),
+    for type_room in types_room:
+        room_features = Room.room_features(type_room)
+        room = Room(type_room=room_features.get('type_room'),
                     number=room_features.get('number'),
                     accessible=room_features.get('accessible'),
                     price=room_features.get('price'),
@@ -37,4 +33,4 @@ def test_all_rooms_on_frontpage(setup_browser):
     # if browser.element('#typesingle'):
     #     browser.element('.fa.fa-remove.roomDelete').click()
     create_room.go_to_frontpage()
-    create_room.assert_all_rooms_on_frontpage(*types)
+    create_room.assert_all_rooms_on_frontpage(*types_room)

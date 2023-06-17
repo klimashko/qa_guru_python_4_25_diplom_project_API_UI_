@@ -31,9 +31,9 @@ class CreateRoomPage:
     def remove_preset_rooms(self):
         if browser.all('.fa.fa-remove.roomDelete'):
             for element in browser.all('.fa.fa-remove.roomDelete'):
-                element.click()
-        # if browser.element('.fa.fa-remove.roomDelete'):
-        #     browser.element('.fa.fa-remove.roomDelete').click()
+                if element:
+                    element.click()
+            # browser.all('.fa.fa-remove.roomDelete').perform(command.js.click)
         return self
 
     def fill_room_number(self, value):
@@ -87,7 +87,7 @@ class CreateRoomPage:
 
         self.fill_room_number(room.number)
 
-        self.fill_room_type(room.type)
+        self.fill_room_type(room.type_room)
 
         self.fill_room_accessibility(room.accessible)
 
@@ -116,9 +116,9 @@ class CreateRoomPage:
         return self
 
     @allure.step("Assert created room")
-    def assert_created_room(self, type):
+    def assert_created_room(self, type_room):
         self.go_to_frontpage()
-        self.assert_room_details_texts(type)
+        self.assert_room_details_texts(type_room)
         return self
 
     @allure.step("Assert created room")
