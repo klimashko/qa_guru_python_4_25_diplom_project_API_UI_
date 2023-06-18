@@ -5,11 +5,11 @@ from models.ui_model import Room
 from pages.create_room_page import CreateRoomPage
 
 
-def test_all_rooms_on_frontpage(browser_management):
+def test_all_rooms_on_frontpage(setup_browser):
     types_room = ["Single", "Double", "Twin", "Family", "Suite"]
     create_room = CreateRoomPage()
 
-    create_room.open(browser_management)
+    create_room.open(setup_browser)
     create_room.login_admin_panel()
 
     create_room.remove_preset_rooms()
