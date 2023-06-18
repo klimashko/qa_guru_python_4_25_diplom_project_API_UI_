@@ -6,7 +6,6 @@ from selene.core import command
 from selene.support.shared import browser
 import allure
 
-
 from models.ui_model import Room
 
 load_dotenv()
@@ -29,13 +28,12 @@ class CreateRoomPage:
         return self
 
     @allure.step("Remove preset rooms")
-
     def remove_preset_rooms(self):
         browser.element('#createRoom').should(be.clickable)
-        if browser.element('.fa.fa-remove.roomDelete'):
+        if browser.element('.fa.fa-remove.roomDelete').with_(timeout=5).wait_until(be.clickable):
             elements = browser.all('.fa.fa-remove.roomDelete')
             for element in elements:
-                if element.should(be.clickable):
+                if element.with_(timeout=5).wait_until(be.clickable):
                     element.perform(command.js.click)
         return self
 
@@ -45,17 +43,19 @@ class CreateRoomPage:
                 element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(command.js.click)
         return self
 
+
     def clean_panel_before_making_allrooms(self):
-        browser.element('#createRoom').should(be.clickable)
-        if browser.element('.row.detail'):
+        browser.element('#createRoom').with_(timeout=5).wait_until(be.clickable)
+        if browser.element('.row.detail').with_(timeout=5).wait_until(be.visible):
             elements = browser.all('.row.detail')
             for element in elements:
-                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete'):
-                    element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(command.js.click)
+                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').with_(timeout=5).wait_until(be.clickable):
+                    element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(
+                        command.js.click)
         return self
 
     def fill_room_number(self, value):
-        browser.element('#roomName').should(be.visible).type(value)
+        browser.element('#roomName').with_(timeout=5).should(be.clickable).type(value)
         return self
 
     def fill_room_type(self, value):
@@ -97,7 +97,7 @@ class CreateRoomPage:
         return self
 
     def create_room_button(self):
-        browser.element('#createRoom').should(be.visible).click()
+        browser.element('#createRoom').with_(timeout=5).should(be.clickable).click()
         return self
 
     @allure.step("Create new room")
