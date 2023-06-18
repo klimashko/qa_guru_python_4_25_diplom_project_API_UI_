@@ -1,7 +1,15 @@
+import allure
+from allure_commons.types import Severity
+
 from models.ui_model import UserMessage
 from pages.message_page import MessagePage
 
 
+@allure.tag("ui")
+@allure.label('owner', 'klimashko')
+@allure.feature('Check filling user message form and getting confirmation')
+@allure.story('Send message')
+@allure.severity(Severity.NORMAL)
 def test_send_message(setup_browser):
     message_page = MessagePage()
 

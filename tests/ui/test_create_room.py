@@ -1,10 +1,18 @@
 import time
+
+import allure
 import pytest
+from allure_commons.types import Severity
 
 from models.ui_model import Room
 from pages.create_room_page import CreateRoomPage
 
 
+@allure.tag("ui")
+@allure.label('owner', 'klimashko')
+@allure.feature('Check, admin posting on the site a room of each type in turn')
+@allure.story('Crate room')
+@allure.severity(Severity.CRITICAL)
 @pytest.mark.parametrize("type_room", ["Single", "Double", "Twin", "Family", "Suite"])
 def test_create_room(setup_browser, type_room):
     type_room = type_room
