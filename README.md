@@ -100,7 +100,10 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 > <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-764">Ссылка на
 > задачу в Jira</a> (запрос доступа admin@qa.guru)
 
-# Настроено автоматическое оповещение о результатах сборки Jenkins в Telegram-бот
+# Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
 
-[Ссылка](https://t.me/+Ctoxu_5DqE1hNDEy)
-![This is an image](/resources/screens/bot.png)
+[Ссылка на Telegram-бот](https://t.me/+Ctoxu_5DqE1hNDEy)
+
+<p>
+  <code><img width="50%" title="Telegram-бот" src="resources/screens/bot.png"></code>
+</p>
