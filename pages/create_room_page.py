@@ -126,7 +126,7 @@ class CreateRoomPage:
         return self
 
     def go_to_frontpage(self):
-        browser.element('#frontPageLink').click()
+        browser.element('#frontPageLink').with_(timeout=30).should(be.clickable).click()
         return self
 
     def assert_room_details_texts(self, value):
