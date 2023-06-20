@@ -26,17 +26,19 @@ https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_proj
 Тест test_create_room параметризован, таким образом тест создается каждый вид гостинничного номера.
 
 ## Проект реализован с использованием
-Python PyCharm Pytest Selen Selenoid Jenkins Allure Report Allure TestOps Telegram Jira
+Python PyCharm Pytest Selen Jenkins Selenoid Allure Report Allure TestOps Jira Telegram Github
 <p  align="center">
   <code><img width="5%" title="Python" src="resources/icons/python.png"></code>
   <code><img width="5%" title="Pycharm" src="resources/icons/pycharm.png"></code>
   <code><img width="5%" title="Pytest" src="resources/icons/pytest.png"></code>
   <code><img width="5%" title="Selene" src="resources/icons/selene.png"></code>
-  <code><img width="5%" title="GitHub" src="resources/icons/Github.png"></code>
-  <code><img width="5%" title="Jenkins" src="resources/icons/Jenkins.png"></code>
+  <code><img width="5%" title="Jenkins" src="resources/icons/jenkins.png"></code>
   <code><img width="5%" title="selenoid" src="resources/icons/selenoid.png"></code>
   <code><img width="5%" title="Allure Report" src="resources/icons/allure.png"></code>
+  <code><img width="5%" title="Allure TestOps" src="resources/icons/allure_testops.png"></code>
+  <code><img width="5%" title="Jira" src="resources/icons/jira.png"></code>
   <code><img width="5%" title="Telegram" src="resources/icons/tg.png"></code>
+  <code><img width="5%" title="GitHub" src="resources/icons/github.png"></code>
 </p>
 
 # Запуск автотестов выполняется на сервере Jenkins
