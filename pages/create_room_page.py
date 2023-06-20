@@ -1,4 +1,5 @@
 import os
+import time
 
 from dotenv import load_dotenv
 from selene import have, be
@@ -20,10 +21,11 @@ class CreateRoomPage:
 
     @allure.step("Login")
     def login_admin_panel(self):
+        browser.element('.btn.btn-primary').should(be.clickable).perform(command.js.click)
         login = os.getenv('LOGIN_ADMIN')
         password = os.getenv('PASSWORD_ADMIN')
-        browser.element('#username').should(be.visible).type(login)
-        browser.element('#password').should(be.visible).type(password)
+        browser.element('#username').should(be.clickable).type(login)
+        browser.element('#password').should(be.clickable).type(password)
         browser.element('#doLogin').click()
         return self
 
@@ -55,7 +57,7 @@ class CreateRoomPage:
         return self
 
     def fill_room_number(self, value):
-        browser.element('#roomName').with_(timeout=5).should(be.clickable).type(value)
+        browser.element('#roomName').with_(timeout=30).should(be.blank).type(value)
         return self
 
     def fill_room_type(self, value):
@@ -97,7 +99,7 @@ class CreateRoomPage:
         return self
 
     def create_room_button(self):
-        browser.element('#createRoom').with_(timeout=5).should(be.clickable).click()
+        browser.element('#createRoom').with_(timeout=30).should(be.clickable).click()
         return self
 
     @allure.step("Create new room")
@@ -128,6 +130,7 @@ class CreateRoomPage:
         return self
 
     def assert_room_details_texts(self, value):
+        browser.element('.col-sm-7').with_(timeout=30).should(be.visible)
         browser.element('.col-sm-7').perform(command.js.scroll_into_view)
         browser.all('.col-sm-7').should(have.texts(
             f'{value}\nPlease enter a description for this room\nWiFi\nRefreshments\nSafe\nViews\nBook this room'))

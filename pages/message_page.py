@@ -41,6 +41,7 @@ class MessagePage:
 
     @allure.step("Assert reply")
     def assert_reply_with_data(self, name, subject):
+        browser.element('.col-sm-5').with_(timeout=30).should(be.visible)
         browser.element('.col-sm-5').should(have.text(
             f"Thanks for getting in touch {name}!\nWe'll get back to you about\n{subject}\nas soon as possible."))
         return self

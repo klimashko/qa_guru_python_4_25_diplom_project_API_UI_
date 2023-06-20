@@ -13,11 +13,11 @@ from pages.create_room_page import CreateRoomPage
 @allure.feature('Check filling user message form and getting confirmation')
 @allure.story('Send message')
 @allure.severity(Severity.CRITICAL)
-def test_all_rooms(setup_browser):
+def test_all_rooms(browser_management):
     types_room = ["Single", "Double", "Twin", "Family", "Suite"]
     create_room = CreateRoomPage()
 
-    create_room.open(setup_browser)
+    create_room.open(browser_management)
     create_room.login_admin_panel()
 
     create_room.remove_preset_rooms()
@@ -34,7 +34,7 @@ def test_all_rooms(setup_browser):
                     views=room_features.get('views'))
 
         create_room.create_new_room(room=room)
-
+        # time.sleep(2)
     create_room.go_to_frontpage()
-    time.sleep(5)
+    # time.sleep(5)
     create_room.assert_all_rooms_on_frontpage(*types_room)

@@ -10,7 +10,7 @@ from pages.message_page import MessagePage
 @allure.feature('Check filling user message form and getting confirmation')
 @allure.story('Send message')
 @allure.severity(Severity.NORMAL)
-def test_send_message(setup_browser):
+def test_send_message(browser_management):
     message_page = MessagePage()
 
     user_data = UserMessage.message_data()
@@ -20,7 +20,7 @@ def test_send_message(setup_browser):
                        subject=user_data.get("subject"),
                        message=user_data.get("message"))
 
-    message_page.open(setup_browser)
+    message_page.open(browser_management)
 
     message_page.fill_message_form(user=user)
 
