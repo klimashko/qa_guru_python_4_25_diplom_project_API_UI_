@@ -28,8 +28,8 @@ https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_proj
 ## Проект реализован с использованием
 Python PyCharm Pytest Selen Selenoid Jenkins Allure Report Allure TestOps Telegram Jira
 <p  align="center">
-  <code><img width="5%" title="Pycharm" src="resources/icons/pycharm.png"></code>
   <code><img width="5%" title="Python" src="resources/icons/python.png"></code>
+  <code><img width="5%" title="Pycharm" src="resources/icons/pycharm.png"></code>
   <code><img width="5%" title="Pytest" src="resources/icons/pytest.png"></code>
   <code><img width="5%" title="Selene" src="resources/icons/selene.png"></code>
   <code><img width="5%" title="GitHub" src="resources/icons/Github.png"></code>
