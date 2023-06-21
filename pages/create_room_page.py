@@ -21,37 +21,46 @@ class CreateRoomPage:
 
     @allure.step("Login")
     def login_admin_panel(self):
-        browser.element('.btn.btn-primary').should(be.clickable).perform(command.js.click)
+        if browser.element('.btn.btn-primary').with_(timeout=30).wait_until(be.clickable):
+            browser.element('.btn.btn-primary').should(be.clickable).perform(command.js.click)
         login = os.getenv('LOGIN_ADMIN')
         password = os.getenv('PASSWORD_ADMIN')
-        browser.element('#username').should(be.clickable).type(login)
-        browser.element('#password').should(be.clickable).type(password)
+        browser.element('#username').should(be.visible).type(login)
+        browser.element('#password').should(be.visible).type(password)
         browser.element('#doLogin').click()
         return self
 
     @allure.step("Remove preset rooms")
-    def remove_preset_rooms(self):
-        browser.element('#createRoom').should(be.clickable)
-        if browser.element('.fa.fa-remove.roomDelete').with_(timeout=5).wait_until(be.clickable):
-            elements = browser.all('.fa.fa-remove.roomDelete')
-            for element in elements:
-                if element.with_(timeout=5).wait_until(be.clickable):
-                    element.perform(command.js.click)
+    def remove_rooms(self):
+        if browser.element('.roomDelete').with_(timeout=10).wait_until(be.clickable):
+            for element in browser.all('.roomDelete'):
+                if element.with_(timeout=10).wait_until(be.clickable):
+                    try:
+                        browser.element('.roomDelete').perform(command.js.click)
+                    finally:
+                        pass
         return self
 
     def second_remove_preset_rooms(self, type_room):
-        for element in browser.all('.row.detail'):
-            if not element.element('.col-sm-2').should(have.text(type_room)):
-                element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(command.js.click)
+        if browser.element('.row.detail').with_(timeout=10).wait_until(be.visible):
+            for element in browser.all('.row.detail'):
+                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').with_(
+                        timeout=10).wait_until(be.clickable):
+                    try:
+                        if not element.element('.col-sm-2').should(have.text(type_room)):
+                            element.element('.col-sm-2').element('.roomDelete').perform(
+                                command.js.click)
+                    finally:
+                        pass
         return self
-
 
     def clean_panel_before_making_allrooms(self):
         browser.element('#createRoom').with_(timeout=5).wait_until(be.clickable)
         if browser.element('.row.detail').with_(timeout=5).wait_until(be.visible):
             elements = browser.all('.row.detail')
             for element in elements:
-                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').with_(timeout=5).wait_until(be.clickable):
+                if element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').with_(
+                        timeout=5).wait_until(be.clickable):
                     element.element('.col-sm-2').element('.fa.fa-remove.roomDelete').perform(
                         command.js.click)
         return self
