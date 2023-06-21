@@ -84,10 +84,13 @@ allure serve allure-results
 ## Посмотреть подробный отчет
 
 ### Посмотреть отчет прогона API тестов
-![Посмотреть подробный отчет  API тестов](resources/screens/detail_report_api.png)
+
+![Allure Report о прхождении API тестов](resources/screens/detail_report_api.png)
 
 ### Посмотреть отчет прогона UI тестов
-![Посмотреть подробный отчет  UI тестов](resources/screens/detail_report_ui.png)
+### Ссылка 1 на скриншоте для Allure Report, ссылка 2 для Allure_TestOps.
+
+![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
 [Ссылка на Allure отчет API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/60/allure/)
 
@@ -101,9 +104,11 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 
 ## Результаты выполнения тестов интегрированы с Allure TestOps
 
-![Посмотреть dashboard_Allure_TestOps](resources/screens/dashboard_testops.png)
+## Dashboard_Allure_TestOps
+![Dashboard_Allure_TestOps](resources/screens/dashboard_testops.png)
 
-![Посмотреть launches_Allure_TestOps](resources/screens/launches_testops.png)
+## Launches_Allure_TestOps
+![Launches_Allure_TestOps](resources/screens/launches_testops.png)
 
 [Ссылка на_Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
 
@@ -114,7 +119,7 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 > <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-764">Ссылка на
 > задачу в Jira</a> (запрос доступа admin@qa.guru)
 
-# Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
+## Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
 
 [Ссылка на Telegram-бот](https://t.me/+Ctoxu_5DqE1hNDEy)
 
