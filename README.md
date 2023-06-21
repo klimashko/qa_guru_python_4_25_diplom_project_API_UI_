@@ -78,17 +78,16 @@ allure serve allure-results
 ![Указать какие тесты будут запущены](resources/screens/select_tests_push_button_collect.png)
 
 ## Посмотреть выполнение прогона
+### Ссылка 1 на скриншоте для Allure Report, ссылка 2 для Allure_TestOps.
 
 ![Посмотреть выполнение прогона](resources/screens/test_run_results.png)
 
-## Посмотреть подробный отчет
 
-### Посмотреть отчет прогона API тестов
+## Отчет прохождения API тестов
 
 ![Allure Report о прхождении API тестов](resources/screens/detail_report_api.png)
 
-### Посмотреть отчет прогона UI тестов
-### Ссылка 1 на скриншоте для Allure Report, ссылка 2 для Allure_TestOps.
+## Отчет прохождения UI тестов
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
