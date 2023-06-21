@@ -1,8 +1,13 @@
-# qa_guru_python_4_25_diplom_project_API
+## Описание
 
-My diplom project, the 4 course automation testing with python at QA GURU school
-https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/
-ссылка на сборку в Jenkins
+<p>В проекте реализована API и UI автоматизации тестирования на Python.
+<p>При написании тестов применялись инструменты ООП, а также использовался шаблон 
+<p>проектирования PageObjects.
+<p>Подключена система отчетности Allure Reports с вложениями (логи, скриншоты, видео). 
+<p>В тестах шаги размечены с помощью allure.step.
+<p>Браузер в UI-тестах запускается удаленно в Selenoid.
+<p>Реализованы интеграции с Allure TestOps и Jira.
+<p>Уведомление о прохождения теста отправляется в Telegram.
 
 # Проект автоматического тестирования сервиса бронирования гостиничных номеров Restful Booker Platform"
 
@@ -36,7 +41,7 @@ https://jenkins.autotests.cloud/job/klimashko_%20qa_guru_python_4_25_diplom_proj
 
 Тест test_create_room параметризован, создается каждый вид гостиничного номера.
 
-## Проект реализован с использованием
+## Используемые технологии
 
 Python, PyCharm, Pytest, Selen, Jenkins, Selenoid, Allure Report, Allure TestOps, Jira,
 Telegram, GitHub.
@@ -55,12 +60,16 @@ Telegram, GitHub.
 
 ## Локальный запуск автотестов
 
-Запуск:
+Запуск api тестов:
 
 ```bash
-pytest tests
+pytest tests/api
 ```
+Запуск ui тестов:
 
+```bash
+pytest tests/ui
+```
 Получение отчёта:
 
 ```bash
@@ -91,9 +100,9 @@ allure serve allure-results
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
-[Ссылка на Allure отчет API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/60/allure/)
+[Allure отчет API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/60/allure/)
 
-[Ссылка на Allure отчет UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/allure/)
+[Allure отчет UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/allure/)
 
 
 ## Видео о прохождении теста
@@ -109,7 +118,7 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 ## Launches_Allure_TestOps
 ![Launches_Allure_TestOps](resources/screens/launches_testops.png)
 
-[Ссылка на_Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
+[Проект в Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
 
 ## Результаты выполнения тестов интегрированы с Atlassian Jira
 
@@ -120,7 +129,7 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 
 ## Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
 
-[Ссылка на Telegram-бот](https://t.me/+Ctoxu_5DqE1hNDEy)
+[Telegram-бот](https://t.me/+Ctoxu_5DqE1hNDEy)
 
 <p>
   <code><img width="30%" title="Telegram-бот" src="resources/screens/bot.png"></code>
