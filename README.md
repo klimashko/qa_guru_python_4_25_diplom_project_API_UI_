@@ -106,7 +106,7 @@ allure serve allure-results
 
 
 ## Видео о прохождении теста
-![This is an image](resources/screens/example_video.mp4)
+![This is an image](resources/screens/example_video.gif)
 
 ## Результаты выполнения тестов интегрированы с Allure TestOps
 
