@@ -106,9 +106,7 @@ allure serve allure-results
 
 
 ## Видео о прохождении теста
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=BuPl-mdW1Dw" target="_blank"><
-img src="https://youtu.be/2mAulpJC9PA"
-alt="Выполнение теста" width="240" height="180" border="10" /></a>
+![This is an image](resources/screens/example_video.mp4)
 
 ## Результаты выполнения тестов интегрированы с Allure TestOps
 
