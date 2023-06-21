@@ -83,20 +83,31 @@ allure serve allure-results
 
 ## Посмотреть подробный отчет
 
-![Посмотреть подробный отчет](https://github.com/strLubov/restful-booker/blob/main/src/img/allure-report.png)
+![Посмотреть подробный отчет  API тестов](resources/screens/detail_report_api.png)
 
-[Ссылка](https://jenkins.autotests.cloud/job/StrelnikovaL_restful-booker/allure/) на
-allure отчет. Allure отчет содержит два suites: API и UI. Для UI тестов приложены логи,
-скриншот и видео о прохождении теста
+![Посмотреть подробный отчет  UI тестов](resources/screens/detail_report_ui.png)
+
+[Ссылка](https://jenkins.autotests.cloud/job/StrelnikovaL_restful-booker/allure/)
+Ссылка на Allure отчет API suites
+
+[Ссылка](https://jenkins.autotests.cloud/job/StrelnikovaL_restful-booker/allure/)
+Ссылка на Allure отчет UI suites
 
 ## Видео о прохождении теста
-
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BuPl-mdW1Dw" target="_blank"><
 img src="https://youtu.be/2mAulpJC9PA"
 alt="Выполнение теста" width="240" height="180" border="10" /></a>
 
-# Результаты выполнения тестов интегрированы с Atlassian Jira
+## Результаты выполнения тестов интегрированы с Allure TestOps
 
+![Посмотреть dashboard_Allure_TestOps](resources/screens/dashboard_testops.png)
+
+![Посмотреть launches_Allure_TestOps](resources/screens/launches_testops.png)
+
+[Ссылка](https://allure.autotests.cloud/project/3428/dashboards)
+
+## Результаты выполнения тестов интегрированы с Atlassian Jira
+![Посмотреть задачу_в_Jira](resources/screens/jira_task.png)
 > <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-764">Ссылка на
 > задачу в Jira</a> (запрос доступа admin@qa.guru)
 
