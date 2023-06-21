@@ -83,15 +83,16 @@ allure serve allure-results
 
 ## Посмотреть подробный отчет
 
+### Посмотреть отчет прогона API тестов
 ![Посмотреть подробный отчет  API тестов](resources/screens/detail_report_api.png)
 
+### Посмотреть отчет прогона UI тестов
 ![Посмотреть подробный отчет  UI тестов](resources/screens/detail_report_ui.png)
 
-[Ссылка](https://jenkins.autotests.cloud/job/StrelnikovaL_restful-booker/allure/)
-Ссылка на Allure отчет API suites
+[Ссылка на Allure отчет API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/60/allure/)
 
-[Ссылка](https://jenkins.autotests.cloud/job/StrelnikovaL_restful-booker/allure/)
-Ссылка на Allure отчет UI suites
+[Ссылка на Allure отчет UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/allure/)
+
 
 ## Видео о прохождении теста
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BuPl-mdW1Dw" target="_blank"><
@@ -104,10 +105,12 @@ alt="Выполнение теста" width="240" height="180" border="10" /></a
 
 ![Посмотреть launches_Allure_TestOps](resources/screens/launches_testops.png)
 
-[Ссылка](https://allure.autotests.cloud/project/3428/dashboards)
+[Ссылка на_Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
 
 ## Результаты выполнения тестов интегрированы с Atlassian Jira
+
 ![Посмотреть задачу_в_Jira](resources/screens/jira_task.png)
+
 > <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-764">Ссылка на
 > задачу в Jira</a> (запрос доступа admin@qa.guru)
 
