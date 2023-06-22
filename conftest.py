@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from utils.helper import BaseSession
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
 from selene import browser
 
 from utils import attach_ui
@@ -21,23 +20,6 @@ def booker(allure_attachments_flag=1):
 
 
 DEFAULT_BROWSER_VERSION = "100.0"
-
-
-# @pytest.fixture(scope='function', autouse=True)
-# def browser_management():
-#     browser.config.hold_browser_open = True
-#     browser.config.window_width = '1024'
-#     browser.config.window_height = '768'
-#     browser.config.timeout = 6.0
-#     browser.config.base_url = "https://automationintesting.online"
-#
-#     yield browser
-#
-#     attach_ui.add_html(browser)
-#     attach_ui.add_screenshot(browser)
-#     attach_ui.add_logs(browser)
-#     attach_ui.add_video(browser)
-#     browser.quit()
 
 
 def pytest_addoption(parser):

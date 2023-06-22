@@ -1,5 +1,4 @@
 import os
-import time
 
 from dotenv import load_dotenv
 from selene import have, be
@@ -53,16 +52,6 @@ class CreateRoomPage:
                     finally:
                         pass
         return self
-
-    # def clean_panel_before_making_allrooms(self):
-    #     browser.element('#createRoom').with_(timeout=5).wait_until(be.clickable)
-    #     if browser.element('.row.detail').with_(timeout=5).wait_until(be.visible):
-    #         for element in browser.all('.row.detail'):
-    #             if browser.element('.col-sm-2').element('.roomDelete').with_(
-    #                     timeout=5).wait_until(be.clickable):
-    #                 browser.element('.col-sm-2').element('.roomDelete').perform(
-    #                     command.js.click)
-    #     return self
 
     def clean_panel_before_making_allrooms(self):
         browser.element('#createRoom').with_(timeout=5).wait_until(be.clickable)
