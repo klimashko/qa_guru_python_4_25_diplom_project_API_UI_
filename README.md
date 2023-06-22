@@ -15,6 +15,7 @@
 
 > <a target="_blank" href="https://automationintesting.online/">Restful Booker
 > Platform</a>
+<a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API документация</a>
 
 ## Проверяется функционал сервиса:
 
@@ -100,9 +101,9 @@ allure serve allure-results
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
-[Allure отчет API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/60/allure/)
+[Сборка с прохождением API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/66/)
 
-[Allure отчет UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/allure/)
+[Сборка с прохождением UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/)
 
 
 ## Видео о прохождении теста
@@ -118,12 +119,11 @@ allure serve allure-results
 
 [Проект в Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
 
-## Результаты выполнения тестов интегрированы с Atlassian Jira
+## Отчеты Allure TestOps интегрированы с Atlassian Jira
 
 ![Посмотреть задачу_в_Jira](resources/screens/jira_task.png)
 
-> <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-764">Ссылка на
-> задачу в Jira</a> (запрос доступа admin@qa.guru)
+[Задача в Jira](https://jira.autotests.cloud/browse/HOMEWORK-764)
 
 ## Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
 
