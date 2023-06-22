@@ -15,8 +15,9 @@
 
 > <a target="_blank" href="https://automationintesting.online/">Restful Booker
 > Platform</a>
-> 
-> <a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API документация</a>
+>
+> <a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API
+> документация</a>
 
 ## Проверяется функционал сервиса:
 
@@ -67,11 +68,13 @@ Telegram, GitHub.
 ```bash
 pytest tests/api
 ```
+
 Запуск ui тестов:
 
 ```bash
 pytest tests/ui
 ```
+
 Получение отчёта:
 
 ```bash
@@ -84,11 +87,14 @@ allure serve allure-results
 
 ![Нажать "Собрать с параметрами"](resources/screens/collect_with_params.png)
 
+
 ## Указать какие тесты будут запущены, нажать кнопку Собрать
 
 ![Указать какие тесты будут запущены](resources/screens/select_tests_push_button_collect.png)
 
+
 ## Посмотреть выполнение прогона
+
 ### Ссылка 1 на скриншоте для Allure Report, ссылка 2 для Allure_TestOps.
 
 ![Посмотреть выполнение прогона](resources/screens/test_run_results.png)
@@ -100,6 +106,7 @@ allure serve allure-results
 
 [Сборка с прохождением API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/66/)
 
+
 ## Отчет прохождения UI тестов
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
@@ -108,23 +115,30 @@ allure serve allure-results
 
 
 ## Пример видео о прохождении UI теста
+
 ![This is an image](resources/screens/example_video.gif)
+
 
 ## Результаты выполнения тестов интегрированы с Allure TestOps
 
 ## Dashboard_Allure_TestOps
+
 ![Dashboard_Allure_TestOps](resources/screens/dashboard_testops.png)
 
+
 ## Launches_Allure_TestOps
+
 ![Launches_Allure_TestOps](resources/screens/launches_testops.png)
 
 [Проект в Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
+
 
 ## Отчеты Allure TestOps интегрированы с Atlassian Jira
 
 ![Посмотреть задачу_в_Jira](resources/screens/jira_task.png)
 
 [Задача в Jira](https://jira.autotests.cloud/browse/HOMEWORK-764)
+
 
 ## Настроено автоматическое уведомление о результатах сборки Jenkins в Telegram-бот
 
