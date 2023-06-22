@@ -15,6 +15,7 @@
 
 > <a target="_blank" href="https://automationintesting.online/">Restful Booker
 > Platform</a>
+> 
 <a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API документация</a>
 
 ## Проверяется функционал сервиса:
@@ -97,16 +98,16 @@ allure serve allure-results
 
 ![Allure Report о прхождении API тестов](resources/screens/detail_report_api.png)
 
+[Сборка с прохождением API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/66/)
+
 ## Отчет прохождения UI тестов
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
-[Сборка с прохождением API suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/66/)
-
 [Сборка с прохождением UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API/61/)
 
 
-## Видео о прохождении теста
+## Пример видео о прохождении UI теста
 ![This is an image](resources/screens/example_video.gif)
 
 ## Результаты выполнения тестов интегрированы с Allure TestOps
