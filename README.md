@@ -16,7 +16,7 @@
 > <a target="_blank" href="https://automationintesting.online/">Restful Booker
 > Platform</a>
 > 
-<a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API документация</a>
+> <a target="_blank" href="http://restful-booker.herokuapp.com/apidoc/index.html">API документация</a>
 
 ## Проверяется функционал сервиса:
 
