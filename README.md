@@ -61,6 +61,7 @@ Telegram, GitHub.
   <code><img width="5%" title="GitHub" src="resources/icons/github.png"></code>
 </p>
 
+
 ## Локальный запуск автотестов
 
 Запуск api тестов:
@@ -81,6 +82,7 @@ pytest tests/ui
 allure serve allure-results
 ```
 
+
 ## Запуск автотестов c помощью [job в Jenkins](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API_UI/)
 
 ## Нажать "Собрать с параметрами"
@@ -98,7 +100,6 @@ allure serve allure-results
 ### Ссылка 1 на скриншоте для Allure Report, ссылка 2 для Allure_TestOps.
 
 ![Посмотреть выполнение прогона](resources/screens/test_run_results.png)
-
 
 ## Отчет прохождения API тестов
 
