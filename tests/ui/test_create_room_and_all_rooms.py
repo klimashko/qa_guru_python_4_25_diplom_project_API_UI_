@@ -44,6 +44,7 @@ def test_create_room(setup_browser, type_room):
     create_room.remove_rooms()
 
 
+
 @allure.tag("ui")
 @allure.label('owner', 'klimashko')
 @allure.feature('Check filling user message form and getting confirmation')
@@ -57,7 +58,7 @@ def test_all_rooms(setup_browser):
     create_room.login_admin_panel()
 
     create_room.remove_rooms()
-    create_room.clean_panel_before_making_allrooms()
+    create_room.clean_panel_from_allrooms()
     for type_room in types_room:
         room_features = Room.room_features(type_room)
         room = Room(type_room=room_features.get('type_room'),
@@ -79,3 +80,5 @@ def test_all_rooms(setup_browser):
     create_room.open(setup_browser)
 
     create_room.remove_rooms()
+
+

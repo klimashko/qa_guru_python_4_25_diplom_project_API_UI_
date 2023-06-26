@@ -18,8 +18,7 @@ def add_html(browser):
 
 
 def add_video(browser):
-    # video_url = "https://selenoid.autotests.cloud/video/" + browser.driver.session_id + ".mp4"
-    video_url = "https://95.216.214.178:8080/video/" + browser.driver.session_id + ".mp4"
+    video_url = "https://selenoid.autotests.cloud/video/" + browser.driver.session_id + ".mp4"
     html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
            + video_url \
            + "' type='video/mp4'></video></body></html>"

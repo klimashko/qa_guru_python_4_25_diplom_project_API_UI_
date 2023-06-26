@@ -19,14 +19,14 @@ def booker(allure_attachments_flag=1):
         yield session
 
 
-DEFAULT_BROWSER_VERSION = "108.0"
+DEFAULT_BROWSER_VERSION = "100.0"
 
 
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
-        # default='100.0'
-        default='108.0'
+        default='100.0'
+        # default='108.0'
     )
 
 
@@ -53,8 +53,8 @@ def setup_browser(request):
     login = os.getenv('LOGIN_SELENOID')
     password = os.getenv('PASSWORD_SELENOID')
     driver = webdriver.Remote(
-        # command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
-        command_executor="http://95.216.214.178:8080/wd/hub",
+        command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+        # command_executor="http://95.216.214.178:8080/wd/hub",
         options=options
     )
 

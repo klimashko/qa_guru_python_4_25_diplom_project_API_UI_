@@ -53,13 +53,13 @@ class CreateRoomPage:
                         pass
         return self
 
-    def clean_panel_before_making_allrooms(self):
+    def clean_panel_from_allrooms(self):
         browser.element('#createRoom').with_(timeout=5).wait_until(be.clickable)
-        if browser.element('.roomDelete').with_(timeout=5).wait_until(be.clickable):
+        if browser.element('.roomDelete').with_(timeout=5).wait_until(be.visible):
             for element in browser.all('.roomDelete'):
-                if element.with_(timeout=5).wait_until(be.clickable):
+                if element.with_(timeout=10).wait_until(be.clickable):
                     try:
-                        browser.element('.roomDelete').perform(command.js.click)
+                        browser.element('.roomDelete').perform(command.js.click).perform(command.js.click)
                     finally:
                         pass
         return self
