@@ -131,7 +131,7 @@ allure serve allure-results
 
 ![Launches_Allure_TestOps](resources/screens/launches_testops.png)
 
-[Проект в Allure_TestOps](https://allure.autotests.cloud/project/3428/dashboards)
+[Запуски проекта в Allure_TestOps](https://allure.autotests.cloud/project/3428/launches)
 
 
 ## Отчеты Allure TestOps интегрированы с Atlassian Jira
