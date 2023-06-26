@@ -19,7 +19,7 @@ def booker(allure_attachments_flag=1):
         yield session
 
 
-DEFAULT_BROWSER_VERSION = "100.0"
+DEFAULT_BROWSER_VERSION = "108.0"
 
 
 def pytest_addoption(parser):
