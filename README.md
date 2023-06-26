@@ -112,7 +112,7 @@ allure serve allure-results
 
 ![Allure Report о прхождении  UI тестов](resources/screens/detail_report_ui.png)
 
-[Сборка с прохождением UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API_UI/61/allure/)
+[Сборка с прохождением UI suites](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API_UI/69/allure/)
 
 
 ## Пример видео о прохождении UI теста
