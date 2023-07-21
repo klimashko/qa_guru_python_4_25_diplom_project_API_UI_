@@ -84,7 +84,7 @@ allure serve allure-results
 
 
 ## Запуск автотестов c помощью [job в Jenkins*](https://jenkins.autotests.cloud/job/Students/job/klimashko_%20qa_guru_python_4_25_diplom_project_API_UI/) 
-#### *ссылка на job доступна для авторизованного пользователя
+#### *ссылка доступна для авторизованного пользователя
 
 
 
